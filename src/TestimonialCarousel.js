@@ -5,10 +5,34 @@ import quotes from './images/quotes.svg';
 
 export default function TestimonialCarousel(props) {
 
+// ==================
+//  DEFAULT STYLES
+// ==================
+
+    var parentContainerStyle = {
+        display: "grid",
+        gridTemplateColumns: "28% 72%",
+        marginLeft: "9.8%",
+        marginRight: "9.8%"
+    }
+
+    var buttonContainerStyle = {
+        display: "grid",
+        gridTemplateColumns: "49.5% 1% 49.5%",
+        width:"175px",
+        height:"63px"
+    }
+
     var carouselButtonLeftStyle = {
         borderRadius:"32px 0 0 32px",
         background: "transparent linear-gradient(180deg, #2AB7EF 0%, #1EA4E1 100%)",
         boxShadow: "0px 3px 6px #0BB7CE34"
+    }
+
+    var arrowStyle = {
+        color: "#FFFFFF",
+        width: "50px",
+        height: "50px"
     }
 
     var carouselButtonRightStyle = {
@@ -17,25 +41,71 @@ export default function TestimonialCarousel(props) {
         boxShadow: "0px 3px 6px #0BB7CE34"
     }
 
+    var buttonSeparatorOuterStyle = {
+        paddingTop: "13.5px",
+        paddingBottom:"13.5px",
+        background: "transparent linear-gradient(180deg, #2AB7EF 0%, #1EA4E1 100%)"
+    }
+
+    var buttonSeparatorInnerStyle = {
+        height: "36px",
+        width:"0px",
+        border: "1px solid #FFFFFF"
+    }
+
+    var textContainerStyle = {
+        boxShadow: "0px 10px 20px #0BB7CE34",
+        borderRadius: "60px",
+        background: "#FFFFFF",
+        padding: "4.4%",
+        paddingRight: "4.4%"
+    }
+
+    var mainTextStyle = {
+        font:"Poppins",
+        fontSize:"30px",
+        fontWeight:"400",
+        marginTop: "78px"
+    }
+
+    var nameTextStyle = {
+        font: "Poppins-bold",
+        fontSize: "30px",
+        fontWeight:"700",
+        marginTop: "50px"
+    }
+
+    var designationTestStyle = {
+        font:"Poppins",
+        fontSize:"30px",
+        fontWeight:"400",
+        color:"#0BB7CE",
+        marginTop: "3px"
+    }
+
+// ==================
+//       PROPS
+// ==================
+
     return (
         <Fragment>
-            <div style={{display: "grid", gridTemplateColumns: "28% 72%", marginLeft: "9.8%", marginRight: "9.8%"}}>
-                <div style={{ display: "grid", gridTemplateColumns: "49.5% 1% 49.5%", width:"175px", height:"63px"}}>
+            <div style={parentContainerStyle}>
+                <div style={buttonContainerStyle}>
                     <Button variant="link" size="sm" style={carouselButtonLeftStyle}>
-                        <BsArrowLeftShort style={{color: "#FFFFFF", width: "50px", height: "50px"}}></BsArrowLeftShort>
+                        <BsArrowLeftShort style={arrowStyle}></BsArrowLeftShort>
                     </Button> 
-                    <div style={{paddingTop: "13.5px", paddingBottom:"13.5px", background: "transparent linear-gradient(180deg, #2AB7EF 0%, #1EA4E1 100%)"}}>
-                        <div style={{height: "36px", width:"0px", border: "1px solid #FFFFFF"}}></div>
+                    <div style={buttonSeparatorOuterStyle}>
+                        <div style={buttonSeparatorInnerStyle}></div>
                     </div>
                     <Button variant="link" size="sm" style={carouselButtonRightStyle}>
-                        <BsArrowRightShort style={{color: "#FFFFFF", width: "50px", height: "50px"}}></BsArrowRightShort>
+                        <BsArrowRightShort style={arrowStyle}></BsArrowRightShort>
                     </Button> 
                 </div>
-                <div style={{boxShadow: "0px 10px 20px #0BB7CE34", borderRadius: "60px", background: "#FFFFFF", padding: "4.4%", paddingRight: "4.4%"}}>
+                <div style={textContainerStyle}>
                     <img src={quotes} />
-                    <h1 style={{font:"Poppins", fontSize:"30px", fontWeight:"400", marginTop: "78px"}}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et</h1>
-                    <h1 style={{font:"Poppins-bold", fontSize:"30px", fontWeight:"700", marginTop: "50px"}}>Mr John Doe</h1>
-                    <h1 style={{font:"Poppins", fontSize:"30px", fontWeight:"400", color:"#0BB7CE", marginTop: "3px"}}>Managing director</h1>
+                    <h1 style={mainTextStyle}>{props.content.text}</h1>
+                    <h1 style={nameTextStyle}>{props.content.name}</h1>
+                    <h1 style={designationTestStyle}>{props.content.designation}</h1>
                 </div>
             </div>
         </Fragment>
